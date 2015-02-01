@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.15
+FROM phusion/baseimage:latest
 MAINTAINER Marius Sturm <hello@torch.sh>
 
 ENV DEBIAN_FRONTEND noninteractive

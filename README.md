@@ -1,5 +1,8 @@
 Graylog2 *Docker* container
 ==================================
+
+[![Docker Hub](https://img.shields.io/badge/docker-swcc%2Fdocker--graylog2-blue.svg?style=flat)](https://registry.hub.docker.com/u/swcc/docker-graylog2/)
+
 This project creates a Docker container with full Graylog2 stack installed.
 
 Requirements
