@@ -10,8 +10,8 @@ Requirements
 You need a recent `docker` version installed, take a look [here](https://docs.docker.com/installation/) for instructions.
 
 ```shell
-$ docker pull graylog2/allinone
-$ docker run -t -p 9000:9000 -p 12201:12201 graylog2/allinone
+$ docker pull swcc/docker-graylog2
+$ docker run -t -p 9000:9000 -p 12201:12201 swcc/docker-graylog2
 ```
 
 This will create a container with all Graylog2 services running.
@@ -39,7 +39,7 @@ to set a variable add a `-e VARIABLE_NAME` option to your `docker run` command. 
 start your container like this:
 
 ```shell
-$ docker run -t -p 9000:9000 -p 12201:12201 -e GRAYLOG2_PASSWORD=SeCuRePwD graylog2/allinone
+$ docker run -t -p 9000:9000 -p 12201:12201 -e GRAYLOG2_PASSWORD=SeCuRePwD swcc/docker-graylog2
 ```
 
 | Variable Name | Configuration Option |
@@ -53,7 +53,7 @@ Persist data
 You can mount the data and log directories to store your data outside of the container:
 
 ```shell
-$ docker run -t -p 9000:9000 -p 12201:12201 -v /graylog2/data:/var/opt/graylog2/data -v /graylog2/logs:/var/log/graylog2 graylog2/allinone
+$ docker run -t -p 9000:9000 -p 12201:12201 -v /graylog2/data:/var/opt/graylog2/data -v /graylog2/logs:/var/log/graylog2 swcc/docker-graylog2
 ```
 
 Multi container setup
@@ -67,13 +67,13 @@ To setup two containers, one for the web interface and one for the server compon
 
 Start the `master` with Graylog2 server parts
 ```shell
-$ docker run -t -p 12900:12900 -p 12201:12201 -p 4001:4001 -e GRAYLOG2_SERVER=true graylog2/allinone
+$ docker run -t -p 12900:12900 -p 12201:12201 -p 4001:4001 -e GRAYLOG2_SERVER=true swcc/docker-graylog2
 ```
 The configuration port 4001 is now accessible through the host IP address.
 
 Start the web interface in a second container and give the host address as `master` to fetch configuration options
 ```shell
-$ docker run -t -p 9000:9000 -e GRAYLOG2_MASTER=<host IP address> -e GRAYLOG2_WEB=true graylog2/allinone
+$ docker run -t -p 9000:9000 -e GRAYLOG2_MASTER=<host IP address> -e GRAYLOG2_WEB=true swcc/docker-graylog2
 ```
 
 Build
